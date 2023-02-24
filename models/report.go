@@ -1,0 +1,14 @@
+package models
+
+import "gorm.io/gorm"
+
+type Report struct {
+	gorm.Model
+	TotalCases uint  `json:"total_cases"`
+	TotalDeaths uint `json:"total_deaths"`
+	TotalRecovered string `json:"total_recovered"`
+	DeathRatePerPopulation string `json:"death_rate_per_population"` //// country-wise list
+	RecoveryRateWithTotalCases string `json:"recovery_rate_with_total_cases"` // country-wise list
+	//SuccessfulCountry //countrywise list
+
+}
