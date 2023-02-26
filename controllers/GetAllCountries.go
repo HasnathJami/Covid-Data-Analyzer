@@ -2,6 +2,6 @@ package controllers
 
 import "github.com/gin-gonic/gin"
 
-func GetCountryByCountryName(context *gin.Context) {
+func GetAllCountries(context *gin.Context) {
 
 }

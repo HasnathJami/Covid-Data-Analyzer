@@ -1,5 +1,24 @@
 package main
 
+import (
+	"os"
+
+	"github.com/HasnathJami/Covid-Data-Analyzer/routers"
+	"github.com/HasnathJami/Covid-Data-Analyzer/utils"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+)
+
 func main() {
-	//gin mysql gorm docker
+    err := godotenv.Load(".env")
+	utils.CheckSimpleError(err)
+
+	var router *gin.Engine
+    routers.Router(router)
+
+	router.Use(gin.Logger())
+	router.Use(cors.Default())
+	
+	router.Run(":" + os.Getenv("PORT"))
 }
