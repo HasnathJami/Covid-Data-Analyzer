@@ -15,7 +15,7 @@ func main() {
 	utils.CheckSimpleError(err)
 
 	var router *gin.Engine
-    routers.Router(router)
+    router = routers.Router()
 
 	router.Use(gin.Logger())
 	router.Use(cors.Default())

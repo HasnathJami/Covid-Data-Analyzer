@@ -5,16 +5,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Router(router *gin.Engine) {
-	router = gin.Default()
+func Router() *gin.Engine{
+	router := gin.New()
 
-	router.Group("api")
+	api := router.Group("/api")
 
-	router.POST("/country", controllers.CreateCountry)
-	router.GET("/countries", controllers.GetAllCountries)
-	router.GET("/country/:country_name", controllers.GetCountryByCountryName)
-	router.PUT("/country/:country_name", controllers.UpdateCountry)
-	router.DELETE("/country/:country_name", controllers.DeleteCountry)
+	api.POST("/country", controllers.CreateCountry)
+	api.GET("/countries", controllers.GetAllCountries)
+	api.GET("/country/:country_name", controllers.GetCountryByCountryName)
+	api.PUT("/country/:country_name", controllers.UpdateCountry)
+	api.DELETE("/country/:country_name", controllers.DeleteCountry)
 
-	router.GET("/reports", controllers.GetReports)
+	api.GET("/reports", controllers.GetReports)
+
+	return router
 }
