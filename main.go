@@ -12,13 +12,13 @@ import (
 
 func main() {
     err := godotenv.Load(".env")
-	utils.CheckSimpleError(err)
+    utils.CheckSimpleError(err)
 
-	var router *gin.Engine
+    var router *gin.Engine
     router = routers.Router()
 
-	router.Use(gin.Logger())
-	router.Use(cors.Default())
+    router.Use(gin.Logger())
+    router.Use(cors.Default())
 	
-	router.Run(":" + os.Getenv("PORT"))
+    router.Run(":" + os.Getenv("PORT"))
 }
